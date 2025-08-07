@@ -95,3 +95,13 @@ function displayForecast(data) {
 
     weatherInfoContainer.innerHTML = html;
 }
+
+localStorage.setItem('lastSearchedCity', city);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const lastCity = localStorage.getItem('lastSearchedCity');
+    if (lastCity) {
+        cityInput.value = lastCity;
+        getWeather(lastCity);
+    }
+});
